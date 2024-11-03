@@ -1,6 +1,6 @@
 package calculator;
 
-public class Caculator {
+public class Calculator {
     public static int sum(int a, int b){
         return a + b;
     }
@@ -18,5 +18,10 @@ public class Caculator {
         else {
             return (double) a / b;
         }
+    }
+    // 4! = 4*3! = 4*3*2! ...
+    public static long factorial(int a){
+        if (a <= 1) return 1;
+        else return a * factorial(a-1);
     }
 }

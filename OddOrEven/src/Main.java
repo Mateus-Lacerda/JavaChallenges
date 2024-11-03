@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -8,8 +9,10 @@ public class Main {
             int value = 0;
             try {
                 value = reader.nextInt();
-            } catch (AssertionError e) {
+            } catch (InputMismatchException e) {
                 System.out.println("It has to be a number...");
+                reader.nextLine();
+                continue;
             }
             if (value == -1) break;
             boolean oddity = (value % 2 != 0);

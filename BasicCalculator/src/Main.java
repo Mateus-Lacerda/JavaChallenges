@@ -1,5 +1,6 @@
-import calculator.Caculator;
+import java.util.Objects;
 import java.util.Scanner;
+import calculator.Calculator;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,30 +8,36 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("Hello and welcome to the CALCULATOR!");
         Scanner scanner = new Scanner(System.in);
-        Caculator calculator = new Caculator();
         while (true){
+            System.out.println("ENTER THE OPERATION YOU WANT TO PERFORM \n + or - or * or \\ or factorial");
+            String op = scanner.next();
+            if (Objects.equals(op, "factorial")){
+                System.out.println("ENTER THE NUMBER: ");
+                int a = scanner.nextInt();
+                long long_result = Calculator.factorial(a);
+                System.out.printf("RESULT: %d%n", long_result);
+                continue;
+            }
             System.out.println("ENTER THE FIRST NUMBER: ");
             int a = scanner.nextInt();
             System.out.println("ENTER THE SECOND NUMBER: ");
             int b = scanner.nextInt();
-            System.out.println("ENTER THE OPERATION YOU WANT TO PERFORM: ");
-            String op = scanner.next();
             double result = 0;
             switch (op) {
                 case "+": {
-                    result = calculator.sum(a, b);
+                    result = Calculator.sum(a, b);
                     break;
                 }
                 case "-": {
-                    result = calculator.subtract(a, b);
+                    result = Calculator.subtract(a, b);
                     break;
                 }
                 case "*": {
-                    result = calculator.multiply(a, b);
+                    result = Calculator.multiply(a, b);
                     break;
                 }
                 case "\\": {
-                    result = calculator.divide(a, b);
+                    result = Calculator.divide(a, b);
                     break;
                 }
                 case "stop":
