@@ -9,13 +9,22 @@ public class Main {
         System.out.println("Hello and welcome to the CALCULATOR!");
         Scanner scanner = new Scanner(System.in);
         while (true){
-            System.out.println("ENTER THE OPERATION YOU WANT TO PERFORM \n + or - or * or \\ or factorial");
+            System.out.println("ENTER THE OPERATION YOU WANT TO PERFORM \n + or - or * or \\ or fact (to get the factorial) or fibo (to get a Fibonacci sequence)");
             String op = scanner.next();
-            if (Objects.equals(op, "factorial")){
+            if (Objects.equals(op, "fact") | Objects.equals(op, "fibo")){
                 System.out.println("ENTER THE NUMBER: ");
                 int a = scanner.nextInt();
-                long long_result = Calculator.factorial(a);
-                System.out.printf("RESULT: %d%n", long_result);
+                switch (op) {
+                    case "fact": {
+                        long long_result = Calculator.factorial(a);
+                        System.out.printf("RESULT: %d%n", long_result);
+                        break;
+                    }
+                    case "fibo": {
+                        Calculator.fibonnaci(a);
+                        break;
+                    }
+                }
                 continue;
             }
             System.out.println("ENTER THE FIRST NUMBER: ");
